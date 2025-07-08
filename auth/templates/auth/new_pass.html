@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}Forgot password{% endblock %}
+
+{% block content %}
+
+<div class="container-xxl hero-header py-5 mt-5" style="min-height: 600px;">
+
+
+  <div class="row justify-content-center mb-4">
+    <div class="col-10 col-sm-6 col-md-4 text-center">
+      <h1 class="text-white fs-2">Type email to existing account.</h1>
+    </div>
+  </div>
+
+
+
+ <!-- form -->
+  <div class="row justify-content-center mb-4">
+    <div class="col-10 col-sm-6 col-md-4">
+      <form action="{{ url_for('auth_bp.forgot_pass') }}" method="post" class="bg-light p-4 rounded shadow">
+        <div class="mb-3">
+          <label for="name" class="form-label">Email:</label>
+          <input type="email" id="name" name="em_to_pass" class="form-control" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">send</button>
+      </form>
+    </div>
+</div>
+
+
+  <!-- Flash zprávy -->
+  <div class="row justify-content-center">
+    <div class="col-10 col-sm-6 col-md-4 bg-primary text-center">
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          
+              {% for message in messages %}
+                <div style="color: rgb(255, 57, 57); font-size: 20px;">{{ message }}<div>
+              {% endfor %}
+          
+          </div>
+        {% endif %}
+      {% endwith %}
+    </div>
+  </div>
+
+</div>
+</div>
+
+{% endblock %}

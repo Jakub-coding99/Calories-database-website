@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+
+<div class="container-xxl hero-header py-5 mt-5" style="min-height: 600px;">
+
+  <!-- Nadpis -->
+  <div class="row justify-content-center mb-4">
+    <div class="col-10 col-sm-6 col-md-4 text-center">
+      <h1 class="text-white fs-2">Login to your account</h1>
+    </div>
+  </div>
+
+  <!-- Formulář -->
+  <div class="row justify-content-center mb-4">
+    <div class="col-10 col-sm-6 col-md-4">
+      <form action="{{ url_for('auth_bp.login') }}" method="post" class="bg-light p-4 rounded shadow">
+        <div class="mb-3">
+          <label for="name" class="form-label">Username:</label>
+          <input type="text" id="name" name="name" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Password:</label>
+          <input type="password" id="password" name="password" class="form-control"  required>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Odkaz: Zapomenuté heslo -->
+  <div class="row justify-content-center mb-3">
+    <div class="col-10 col-sm-6 col-md-4 text-center">
+      <a style="color: white;" href="{{ url_for('auth_bp.forgot_pass') }}">Forgot password?</a>
+    </div>
+  </div>
+
+  <div class="row justify-content-center mb-3">
+    <div class="col-10 col-sm-6 col-md-4 text-center">
+      <a style="color: white;">Don't you have an account yet? <a href="{{url_for('auth_bp.register')}}" class="text-white text-decoration-underline" aria-hidden="true"></i>Click Here!</a></a>
+    </div>
+  </div>
+  <!-- Flash zprávy -->
+  <div class="row justify-content-center">
+    <div class="col-10 col-sm-6 col-md-4 bg-primary text-center">
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          
+              {% for message in messages %}
+                <div style="color: rgb(255, 57, 57); font-size: 20px;">{{ message }}<div>
+              {% endfor %}
+          
+          </div>
+        {% endif %}
+      {% endwith %}
+    </div>
+  </div>
+
+</div>
+
+
+{% endblock %}

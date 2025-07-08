@@ -1,0 +1,249 @@
+{% extends 'base.html' %}
+{% block title %}My Profile{% endblock %}
+
+{% block content %}
+
+                
+  <div class="container pt-5 mt-5" >
+    <div class="card  text-white bg-primary">
+      <div class="position-relative  text-white px-3 py-2 mb-3" style="background: #00a780;">
+    
+      <h4 class="card-title  text-center mb-0">Personal Goal</h4>
+        <button 
+          style="color: rgb(255, 255, 255)"
+          type="button"
+          class="btn btn-sm btn-green border text-white position-absolute top-50 end-0 translate-middle-y me-3"  
+          role="button" 
+          data-bs-toggle="popover" 
+          data-bs-trigger="focus"
+          title="About"  
+          data-bs-content = "Fill the form to get counted calories and macronutrients depending on your goal.">About
+         <i class="bi bi-info-circle"></i>
+        </button> 
+        </div>
+        
+      <div class="p-3">
+     <form method="POST" name = "form1">
+ 
+          
+     
+<div class="row">
+  <div class="col">
+    <div class="mb-3">
+    <label for="gender" class="form-label">Gender</label>
+      <select class="form-select" id="gender" name = "gender" required>
+        <option selected>Male</option>
+        <option>Female</option>
+      </select>
+  </div>
+
+</div>
+
+<div class="col">
+  <div class="mb-3">
+    <label for="calories" class="form-label">Age</label>
+    <div class="input-group mb-2">
+      <input type="number" class="form-control" id="age" min = "1" name = "age" required>
+      <span class="input-group-text">years</span>
+    </div>
+  </div>
+</div>
+  
+</div>
+  
+<div class="row">
+<div class="col">
+<div class="mb-3">
+    <label for="calories" class="form-label">Height</label>
+    <div class="input-group mb-2">
+      <input type="number" class="form-control" id="height"  min="100" name = "height" required>
+      <span class="input-group-text">cm</span>
+    </div>
+  </div>
+</div>
+
+
+<div class="col">
+<div class="mb-3">
+    <label for="targetWeight" class="form-label">Weight</label>
+    <div class="input-group">
+      <input type="number" class="form-control" id="targetWeight" name = "weight" required>
+      <span class="input-group-text">kg</span>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<div class="row">
+<div class="col">
+<div class="mb-3">
+    <label for="activiry" class="form-label">Activity</label>
+    <select class="form-select" id="activity" name = "activity">
+      <option selected>Sedentary - Little or no physical activity, mostly sitting (e.g. office work)</option>
+      <option>Moderately Active - Light to moderate physical activity a few times per week</option>
+      <option>Very Active - Daily physical activity, intense workout, or physically demanding job</option>
+      <option>Extra Active - Intense training (twice a day) or very physically demanding job (e.g. proffesional athlete)</option>
+    </select>
+  </div>
+</div>
+
+<div class="col">
+<div class="mb-3">
+    <label for="goal" class="form-label">Goal</label>
+    <select class="form-select" id="goal" name = "goal" required>
+      <option selected>Lose Fat</option>
+      <option>Gain Weight</option>
+      <option>Maintenance</option>
+    </select>
+  </div>
+</div>
+</div>
+  
+  <button class="btn btn-success w-100" type="submit" name = "form" value="form1">Count</button>
+</form>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="container bg-light pt-4 mt-4 mb-4">
+     <div class="card  text-white bg-dark">
+      <div class="position-relative bg-dark text-white px-3 py-2 mb-3">
+    
+      <h4 class="card-title  text-center mb-0">Personal Goal</h4>
+        <button 
+          style="color: rgb(255, 255, 255)"
+          type="button"
+          class="btn btn-sm btn-green border text-white position-absolute top-50 end-0 translate-middle-y me-3"  
+          role="button" 
+          data-bs-toggle="popover" 
+          data-bs-trigger="focus"
+          title="About"  
+          data-bs-content = "Fill the form to get counted calories and macronutrients depending on your goal.">About
+         <i class="bi bi-info-circle"></i>
+        </button> 
+        </div>
+        
+  <div class="p-3">
+
+  
+  <form method="POST" name = "form2">
+  <div class="row">
+<div class="col">
+
+<div class="mb-3">
+    <label for="water" class="form-label">Calories</label>
+    <div class="input-group">
+      <input type="number" step="0.1" class="form-control" id="fiber" name = "kcal" value="{{macro.calories or ''}}" required>
+      <span class="input-group-text">kcal</span>
+    </div>
+  </div>
+</div>
+<div class="col">
+
+
+
+  <div class="mb-3">
+    <label for="calories" class="form-label">Protein</label>
+    <div class="input-group">
+      <input type="number" class="form-control" id="protein" name = "protein" value="{{macro.proteins or ''}}" required>
+      <span class="input-group-text">g</span>
+    </div>
+  </div>
+  
+
+
+</div>
+
+  
+  
+  
+  </div>
+  
+  <div class="row">
+
+    <div class="col">
+    <div class="mb-3">
+    <label for="calories" class="form-label">Carbs</label>
+    <div class="input-group">
+      <input type="number" class="form-control" id="carbs" name = "carbs" value="{{macro.carbs or ''}}" required>
+      <span class="input-group-text">g</span>
+    </div>
+  </div>
+
+    </div>
+    <div class="col">
+  <div class="mb-3">
+    <label for="targetWeight" class="form-label">Fat</label>
+    <div class="input-group">
+      <input type="number" class="form-control" id="fat" name = "fat" value="{{macro.fat or ''}}" required>
+      <span class="input-group-text">g</span>
+    </div>
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="mb-3">
+    <label for="water" class="form-label">Fiber</label>
+    <div class="input-group">
+      <input type="number" step="0.1" class="form-control" id="fiber" name = "fiber" value="{{macro.fiber or ''}}" required>
+      <span class="input-group-text">g</span>
+    </div>
+  </div>
+
+  <button class="btn btn-success w-100"  type="submit" name = "form" value="form2">Save</button>
+  </form>
+</div>
+
+</div>
+</div>
+
+<div class="container pt-4 mt-4 mb-4">
+     <div class="card  text-white bg-primary">
+      <div class="position-relative bg-primary text-white px-3 py-2 mb-2">
+    
+      <h4 class="card-title  text-center mb-0">Track your calories</h4>
+       <button 
+          style="color: rgb(255, 255, 255)"
+          type="button"
+          class="btn btn-sm btn-green border text-white position-absolute top-50 end-0 translate-middle-y me-3"  
+          role="button" 
+          data-bs-toggle="popover" 
+          data-bs-trigger="focus"
+          title="About"  
+          data-bs-content = "Look how many calories you consumed in previous days.">About
+         <i class="bi bi-info-circle"></i>
+        </button> 
+        </div>
+
+<div class="p-3">
+<div class="mb-4 mt-3">
+  <form method="post"  action="{{url_for('my_profile')}}#form3" id="form3">
+    <div class="mb-2">
+
+   
+    <label style="font-size: large" for="dailykcal">Type a day to look for a consumed calories</label>
+    <input type="text" class="form-control rounded" name = "dailylog" placeholder="Type in format: dd/mm/yyyy" required>
+       </div>
+  {% if d  %}
+    <p style="font-size: large;color: white;">{{d|safe}}</p>
+{% endif %}
+    </div>
+<button class="btn btn-success w-100"  type="submit" name = "form" value="form3">Search</button>
+  </form>
+
+</div>
+</div>
+
+{% endblock %}
+
+
