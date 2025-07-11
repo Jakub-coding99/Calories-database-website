@@ -16,7 +16,7 @@ bootstrap = Bootstrap5(app)
 
 app.register_blueprint(auth_bp)
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///daily_meals.sqlite3"
+app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DB_URL")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["SECRET_KEY"] = os.getenv("secret_key")
 
