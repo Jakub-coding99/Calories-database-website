@@ -8,7 +8,7 @@ This website has multiple features:
 - Track calories by day
 
 ### Setup
-1. git pull https://github.com/Jakub-coding99/calories-database-website
+1. git clone https://github.com/Jakub-coding99/calories-database-website
 2.  Install dependencies: **pip install -r requirements.txt**
 3. Register on  [Nutrionix API](https://www.nutritionix.com/) and get your API KEY and API ID
 4. Run the app: **python main.py**
