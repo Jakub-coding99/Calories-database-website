@@ -14,6 +14,7 @@ calorie_counter = CalorieCounter()
 app = Flask(__name__)
 bootstrap = Bootstrap5(app)
 
+
 app.register_blueprint(auth_bp)
 
 app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DB_URL")
@@ -498,5 +499,5 @@ def delete_meal(meal_id):
 if app.name == "main":
     automatic_database()
     
-    app.run(debug=True, use_reloader = False)
+    app.run(debug=False)
    
