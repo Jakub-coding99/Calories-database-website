@@ -8,7 +8,7 @@ db = SQLAlchemy()
 
 class DailyMeals(db.Model):
     __tablename__ = "daily_meals"
-    id = db.Column(db.db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
     porcion = db.Column(db.String)
     calories = db.Column(db.Integer)
